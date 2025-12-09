@@ -1,4 +1,5 @@
-const API_BASE_URL = "http://localhost:3000"; // TODO: поменяй на свой домен
+// const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "https://kotcat.com";
 
 type Settings = {
     apiToken: string;
@@ -83,7 +84,7 @@ interface AddWordParams {
 }
 
 async function addWordToFolder({ apiToken, folderId, word, sourceUrl }: AddWordParams) {
-    const url = `${API_BASE_URL}/ext/cards`;
+    const url = `${API_BASE_URL}/api/ext/cards`;
 
     const res = await fetch(url, {
         method: "POST",

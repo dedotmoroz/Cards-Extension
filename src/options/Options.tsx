@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-const API_BASE_URL = "http://localhost:3000"; // тот же, что в background.ts
+// const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "https://kotcat.com";
 
 type Folder = {
     id: string;
@@ -67,7 +68,7 @@ export const Options: React.FC = () => {
 
     async function loadFolders(token: string) {
         // 1. узнаём userId через /auth/me
-        const meRes = await fetch(`${API_BASE_URL}/auth/me`, {
+        const meRes = await fetch(`${API_BASE_URL}/api/auth/me`, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -85,7 +86,7 @@ export const Options: React.FC = () => {
         const userId = me.id;
 
         // 2. получаем список папок
-        const foldersRes = await fetch(`${API_BASE_URL}/folders/${userId}`, {
+        const foldersRes = await fetch(`${API_BASE_URL}/api/folders/${userId}`, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${token}`,
