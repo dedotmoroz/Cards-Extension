@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Asistente de diccionario de tarjetas"
+  },
+  "extensionDescription": {
+    "message": "Añade palabras seleccionadas a tu diccionario de tarjetas."
+  },
+  "addToDictionary": {
+    "message": "Añadir al diccionario"
+  },
+  "addToDictionaryWithWord": {
+    "message": "\"$WORD$\" - Añadir al diccionario",
+    "placeholders": {
+      "WORD": {
+        "content": "$1"
+      }
+    }
+  },
+  "notConfigured": {
+    "message": "No configurado"
+  },
+  "enabled": {
+    "message": "Habilitado"
+  },
+  "disabled": {
+    "message": "Deshabilitado"
+  },
+  "enable": {
+    "message": "Habilitar"
+  },
+  "disable": {
+    "message": "Deshabilitar"
+  },
+  "settings": {
+    "message": "Configuración"
+  },
+  "folderId": {
+    "message": "ID de carpeta"
+  },
+  "token": {
+    "message": "Token"
+  },
+  "added": {
+    "message": "Añadido: \"$WORD$\"",
+    "placeholders": {
+      "WORD": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorAddingWord": {
+    "message": "Error al añadir palabra."
+  },
+  "apiTokenNotConfigured": {
+    "message": "Token API o carpeta no configurados. Abra la configuración de la extensión."
+  },
+  "extensionTitle": {
+    "message": "Extensión KotCat Cards"
+  },
+  "wordsAddedFromContextMenu": {
+    "message": "Las palabras se añaden desde el menú contextual cuando la extensión está habilitada."
+  },
+  "apiTokenSection": {
+    "message": "1. Token API"
+  },
+  "apiTokenDescription": {
+    "message": "En la página de perfil de usuario kotcat.com/profile cree un token, cópielo y péguelo en este campo y haga clic en OK para cargar la lista de carpetas."
+  },
+  "tokenSaved": {
+    "message": "Token guardado."
+  },
+  "enterToken": {
+    "message": "Ingrese el token"
+  },
+  "loading": {
+    "message": "Cargando…"
+  },
+  "ok": {
+    "message": "OK"
+  },
+  "availableFolders": {
+    "message": "2. Carpetas disponibles"
+  },
+  "availableFoldersDescription": {
+    "message": "Después de ingresar el token y hacer clic en OK, aparecerá aquí una lista de sus carpetas disponibles."
+  },
+  "selectFolderFirst": {
+    "message": "Primero ingrese el token y haga clic en OK"
+  },
+  "loadingFolders": {
+    "message": "Cargando carpetas…"
+  },
+  "noFoldersFound": {
+    "message": "No se encontraron carpetas"
+  },
+  "selectFolder": {
+    "message": "Seleccione una carpeta…"
+  },
+  "tokenSavedFoldersLoaded": {
+    "message": "Token guardado, carpetas cargadas ✔"
+  },
+  "folderSaved": {
+    "message": "Carpeta guardada ✔"
+  },
+  "settingsReset": {
+    "message": "Configuración restablecida"
+  },
+  "resetSettings": {
+    "message": "Restablecer configuración"
+  },
+  "afterSetupInstructions": {
+    "message": "Después de la configuración: seleccione una palabra en cualquier página → clic derecho → \"Añadir al diccionario\", y se añadirá a la carpeta seleccionada."
+  },
+  "extensionDescriptionFull": {
+    "message": "La extensión añade palabras seleccionadas a la carpeta de tarjetas seleccionada."
+  },
+  "authError": {
+    "message": "Error de autorización: $STATUS$ $TEXT$",
+    "placeholders": {
+      "STATUS": {
+        "content": "$1"
+      },
+      "TEXT": {
+        "content": "$2"
+      }
+    }
+  },
+  "foldersLoadError": {
+    "message": "Error al cargar carpetas: $STATUS$ $TEXT$",
+    "placeholders": {
+      "STATUS": {
+        "content": "$1"
+      },
+      "TEXT": {
+        "content": "$2"
+      }
+    }
+  },
+  "failedToLoadFolders": {
+    "message": "No se pudieron cargar las carpetas"
+  }
+}
+

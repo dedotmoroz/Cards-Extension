@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "卡片词典助手"
+  },
+  "extensionDescription": {
+    "message": "将选定的单词添加到您的卡片词典中。"
+  },
+  "addToDictionary": {
+    "message": "添加到词典"
+  },
+  "addToDictionaryWithWord": {
+    "message": "\"$WORD$\" - 添加到词典",
+    "placeholders": {
+      "WORD": {
+        "content": "$1"
+      }
+    }
+  },
+  "notConfigured": {
+    "message": "未配置"
+  },
+  "enabled": {
+    "message": "已启用"
+  },
+  "disabled": {
+    "message": "已禁用"
+  },
+  "enable": {
+    "message": "启用"
+  },
+  "disable": {
+    "message": "禁用"
+  },
+  "settings": {
+    "message": "设置"
+  },
+  "folderId": {
+    "message": "文件夹ID"
+  },
+  "token": {
+    "message": "令牌"
+  },
+  "added": {
+    "message": "已添加：\"$WORD$\"",
+    "placeholders": {
+      "WORD": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorAddingWord": {
+    "message": "添加单词时出错。"
+  },
+  "apiTokenNotConfigured": {
+    "message": "未配置API令牌或文件夹。打开扩展设置。"
+  },
+  "extensionTitle": {
+    "message": "KotCat卡片扩展"
+  },
+  "wordsAddedFromContextMenu": {
+    "message": "当扩展启用时，单词从上下文菜单中添加。"
+  },
+  "apiTokenSection": {
+    "message": "1. API令牌"
+  },
+  "apiTokenDescription": {
+    "message": "在用户配置文件页面 kotcat.com/profile 上创建令牌，复制它并将其粘贴到此字段中，然后单击确定以加载文件夹列表。"
+  },
+  "tokenSaved": {
+    "message": "令牌已保存。"
+  },
+  "enterToken": {
+    "message": "输入令牌"
+  },
+  "loading": {
+    "message": "加载中…"
+  },
+  "ok": {
+    "message": "确定"
+  },
+  "availableFolders": {
+    "message": "2. 可用文件夹"
+  },
+  "availableFoldersDescription": {
+    "message": "输入令牌并单击确定后，您的可用文件夹列表将显示在此处。"
+  },
+  "selectFolderFirst": {
+    "message": "首先输入令牌并单击确定"
+  },
+  "loadingFolders": {
+    "message": "正在加载文件夹…"
+  },
+  "noFoldersFound": {
+    "message": "未找到文件夹"
+  },
+  "selectFolder": {
+    "message": "选择文件夹…"
+  },
+  "tokenSavedFoldersLoaded": {
+    "message": "令牌已保存，文件夹已加载 ✔"
+  },
+  "folderSaved": {
+    "message": "文件夹已保存 ✔"
+  },
+  "settingsReset": {
+    "message": "设置已重置"
+  },
+  "resetSettings": {
+    "message": "重置设置"
+  },
+  "afterSetupInstructions": {
+    "message": "设置后：在任何页面上选择一个单词 → 右键单击 → \"添加到词典\"，它将添加到选定的文件夹中。"
+  },
+  "extensionDescriptionFull": {
+    "message": "扩展将选定的单词添加到选定的卡片文件夹中。"
+  },
+  "authError": {
+    "message": "授权错误：$STATUS$ $TEXT$",
+    "placeholders": {
+      "STATUS": {
+        "content": "$1"
+      },
+      "TEXT": {
+        "content": "$2"
+      }
+    }
+  },
+  "foldersLoadError": {
+    "message": "加载文件夹时出错：$STATUS$ $TEXT$",
+    "placeholders": {
+      "STATUS": {
+        "content": "$1"
+      },
+      "TEXT": {
+        "content": "$2"
+      }
+    }
+  },
+  "failedToLoadFolders": {
+    "message": "加载文件夹失败"
+  }
+}
+

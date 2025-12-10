@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Assistant de dictionnaire de cartes"
+  },
+  "extensionDescription": {
+    "message": "Ajoute les mots sélectionnés à votre dictionnaire de cartes."
+  },
+  "addToDictionary": {
+    "message": "Ajouter au dictionnaire"
+  },
+  "addToDictionaryWithWord": {
+    "message": "\"$WORD$\" - Ajouter au dictionnaire",
+    "placeholders": {
+      "WORD": {
+        "content": "$1"
+      }
+    }
+  },
+  "notConfigured": {
+    "message": "Non configuré"
+  },
+  "enabled": {
+    "message": "Activé"
+  },
+  "disabled": {
+    "message": "Désactivé"
+  },
+  "enable": {
+    "message": "Activer"
+  },
+  "disable": {
+    "message": "Désactiver"
+  },
+  "settings": {
+    "message": "Paramètres"
+  },
+  "folderId": {
+    "message": "ID du dossier"
+  },
+  "token": {
+    "message": "Jeton"
+  },
+  "added": {
+    "message": "Ajouté : \"$WORD$\"",
+    "placeholders": {
+      "WORD": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorAddingWord": {
+    "message": "Erreur lors de l'ajout du mot."
+  },
+  "apiTokenNotConfigured": {
+    "message": "Jeton API ou dossier non configuré. Ouvrez les paramètres de l'extension."
+  },
+  "extensionTitle": {
+    "message": "Extension KotCat Cards"
+  },
+  "wordsAddedFromContextMenu": {
+    "message": "Les mots sont ajoutés depuis le menu contextuel lorsque l'extension est activée."
+  },
+  "apiTokenSection": {
+    "message": "1. Jeton API"
+  },
+  "apiTokenDescription": {
+    "message": "Sur la page de profil utilisateur kotcat.com/profile créez un jeton, copiez-le et collez-le dans ce champ et cliquez sur OK pour charger la liste des dossiers."
+  },
+  "tokenSaved": {
+    "message": "Jeton enregistré."
+  },
+  "enterToken": {
+    "message": "Entrez le jeton"
+  },
+  "loading": {
+    "message": "Chargement…"
+  },
+  "ok": {
+    "message": "OK"
+  },
+  "availableFolders": {
+    "message": "2. Dossiers disponibles"
+  },
+  "availableFoldersDescription": {
+    "message": "Après avoir entré le jeton et cliqué sur OK, une liste de vos dossiers disponibles apparaîtra ici."
+  },
+  "selectFolderFirst": {
+    "message": "Entrez d'abord le jeton et cliquez sur OK"
+  },
+  "loadingFolders": {
+    "message": "Chargement des dossiers…"
+  },
+  "noFoldersFound": {
+    "message": "Aucun dossier trouvé"
+  },
+  "selectFolder": {
+    "message": "Sélectionnez un dossier…"
+  },
+  "tokenSavedFoldersLoaded": {
+    "message": "Jeton enregistré, dossiers chargés ✔"
+  },
+  "folderSaved": {
+    "message": "Dossier enregistré ✔"
+  },
+  "settingsReset": {
+    "message": "Paramètres réinitialisés"
+  },
+  "resetSettings": {
+    "message": "Réinitialiser les paramètres"
+  },
+  "afterSetupInstructions": {
+    "message": "Après la configuration : sélectionnez un mot sur n'importe quelle page → clic droit → \"Ajouter au dictionnaire\", et il sera ajouté au dossier sélectionné."
+  },
+  "extensionDescriptionFull": {
+    "message": "L'extension ajoute les mots sélectionnés au dossier de cartes sélectionné."
+  },
+  "authError": {
+    "message": "Erreur d'autorisation : $STATUS$ $TEXT$",
+    "placeholders": {
+      "STATUS": {
+        "content": "$1"
+      },
+      "TEXT": {
+        "content": "$2"
+      }
+    }
+  },
+  "foldersLoadError": {
+    "message": "Erreur lors du chargement des dossiers : $STATUS$ $TEXT$",
+    "placeholders": {
+      "STATUS": {
+        "content": "$1"
+      },
+      "TEXT": {
+        "content": "$2"
+      }
+    }
+  },
+  "failedToLoadFolders": {
+    "message": "Échec du chargement des dossiers"
+  }
+}
+

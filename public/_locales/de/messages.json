@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Karten-Wörterbuch-Helfer"
+  },
+  "extensionDescription": {
+    "message": "Fügt ausgewählte Wörter zu Ihrem Karten-Wörterbuch hinzu."
+  },
+  "addToDictionary": {
+    "message": "Zum Wörterbuch hinzufügen"
+  },
+  "addToDictionaryWithWord": {
+    "message": "\"$WORD$\" - Zum Wörterbuch hinzufügen",
+    "placeholders": {
+      "WORD": {
+        "content": "$1"
+      }
+    }
+  },
+  "notConfigured": {
+    "message": "Nicht konfiguriert"
+  },
+  "enabled": {
+    "message": "Aktiviert"
+  },
+  "disabled": {
+    "message": "Deaktiviert"
+  },
+  "enable": {
+    "message": "Aktivieren"
+  },
+  "disable": {
+    "message": "Deaktivieren"
+  },
+  "settings": {
+    "message": "Einstellungen"
+  },
+  "folderId": {
+    "message": "Ordner-ID"
+  },
+  "token": {
+    "message": "Token"
+  },
+  "added": {
+    "message": "Hinzugefügt: \"$WORD$\"",
+    "placeholders": {
+      "WORD": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorAddingWord": {
+    "message": "Fehler beim Hinzufügen des Wortes."
+  },
+  "apiTokenNotConfigured": {
+    "message": "API-Token oder Ordner nicht konfiguriert. Öffnen Sie die Erweiterungseinstellungen."
+  },
+  "extensionTitle": {
+    "message": "KotCat Cards Erweiterung"
+  },
+  "wordsAddedFromContextMenu": {
+    "message": "Wörter werden aus dem Kontextmenü hinzugefügt, wenn die Erweiterung aktiviert ist."
+  },
+  "apiTokenSection": {
+    "message": "1. API-Token"
+  },
+  "apiTokenDescription": {
+    "message": "Erstellen Sie auf der Benutzerprofilseite kotcat.com/profile ein Token, kopieren Sie es und fügen Sie es in dieses Feld ein und klicken Sie auf OK, um die Liste der Ordner zu laden."
+  },
+  "tokenSaved": {
+    "message": "Token gespeichert."
+  },
+  "enterToken": {
+    "message": "Token eingeben"
+  },
+  "loading": {
+    "message": "Laden…"
+  },
+  "ok": {
+    "message": "OK"
+  },
+  "availableFolders": {
+    "message": "2. Verfügbare Ordner"
+  },
+  "availableFoldersDescription": {
+    "message": "Nach der Eingabe des Tokens und dem Klicken auf OK wird hier eine Liste Ihrer verfügbaren Ordner angezeigt."
+  },
+  "selectFolderFirst": {
+    "message": "Geben Sie zuerst den Token ein und klicken Sie auf OK"
+  },
+  "loadingFolders": {
+    "message": "Ordner werden geladen…"
+  },
+  "noFoldersFound": {
+    "message": "Keine Ordner gefunden"
+  },
+  "selectFolder": {
+    "message": "Ordner auswählen…"
+  },
+  "tokenSavedFoldersLoaded": {
+    "message": "Token gespeichert, Ordner geladen ✔"
+  },
+  "folderSaved": {
+    "message": "Ordner gespeichert ✔"
+  },
+  "settingsReset": {
+    "message": "Einstellungen zurückgesetzt"
+  },
+  "resetSettings": {
+    "message": "Einstellungen zurücksetzen"
+  },
+  "afterSetupInstructions": {
+    "message": "Nach der Einrichtung: Wählen Sie ein Wort auf einer beliebigen Seite aus → Rechtsklick → \"Zum Wörterbuch hinzufügen\", und es wird zum ausgewählten Ordner hinzugefügt."
+  },
+  "extensionDescriptionFull": {
+    "message": "Die Erweiterung fügt ausgewählte Wörter zum ausgewählten Kartenordner hinzu."
+  },
+  "authError": {
+    "message": "Autorisierungsfehler: $STATUS$ $TEXT$",
+    "placeholders": {
+      "STATUS": {
+        "content": "$1"
+      },
+      "TEXT": {
+        "content": "$2"
+      }
+    }
+  },
+  "foldersLoadError": {
+    "message": "Fehler beim Laden der Ordner: $STATUS$ $TEXT$",
+    "placeholders": {
+      "STATUS": {
+        "content": "$1"
+      },
+      "TEXT": {
+        "content": "$2"
+      }
+    }
+  },
+  "failedToLoadFolders": {
+    "message": "Fehler beim Laden der Ordner"
+  }
+}
+

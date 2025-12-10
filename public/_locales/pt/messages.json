@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Assistente de dicionário de cartões"
+  },
+  "extensionDescription": {
+    "message": "Adiciona palavras selecionadas ao seu dicionário de cartões."
+  },
+  "addToDictionary": {
+    "message": "Adicionar ao dicionário"
+  },
+  "addToDictionaryWithWord": {
+    "message": "\"$WORD$\" - Adicionar ao dicionário",
+    "placeholders": {
+      "WORD": {
+        "content": "$1"
+      }
+    }
+  },
+  "notConfigured": {
+    "message": "Não configurado"
+  },
+  "enabled": {
+    "message": "Habilitado"
+  },
+  "disabled": {
+    "message": "Desabilitado"
+  },
+  "enable": {
+    "message": "Habilitar"
+  },
+  "disable": {
+    "message": "Desabilitar"
+  },
+  "settings": {
+    "message": "Configurações"
+  },
+  "folderId": {
+    "message": "ID da pasta"
+  },
+  "token": {
+    "message": "Token"
+  },
+  "added": {
+    "message": "Adicionado: \"$WORD$\"",
+    "placeholders": {
+      "WORD": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorAddingWord": {
+    "message": "Erro ao adicionar palavra."
+  },
+  "apiTokenNotConfigured": {
+    "message": "Token da API ou pasta não configurados. Abra as configurações da extensão."
+  },
+  "extensionTitle": {
+    "message": "Extensão KotCat Cards"
+  },
+  "wordsAddedFromContextMenu": {
+    "message": "As palavras são adicionadas do menu contextual quando a extensão está habilitada."
+  },
+  "apiTokenSection": {
+    "message": "1. Token da API"
+  },
+  "apiTokenDescription": {
+    "message": "Na página de perfil do usuário kotcat.com/profile crie um token, copie-o e cole-o neste campo e clique em OK para carregar a lista de pastas."
+  },
+  "tokenSaved": {
+    "message": "Token salvo."
+  },
+  "enterToken": {
+    "message": "Digite o token"
+  },
+  "loading": {
+    "message": "Carregando…"
+  },
+  "ok": {
+    "message": "OK"
+  },
+  "availableFolders": {
+    "message": "2. Pastas disponíveis"
+  },
+  "availableFoldersDescription": {
+    "message": "Após inserir o token e clicar em OK, uma lista de suas pastas disponíveis aparecerá aqui."
+  },
+  "selectFolderFirst": {
+    "message": "Primeiro digite o token e clique em OK"
+  },
+  "loadingFolders": {
+    "message": "Carregando pastas…"
+  },
+  "noFoldersFound": {
+    "message": "Nenhuma pasta encontrada"
+  },
+  "selectFolder": {
+    "message": "Selecione uma pasta…"
+  },
+  "tokenSavedFoldersLoaded": {
+    "message": "Token salvo, pastas carregadas ✔"
+  },
+  "folderSaved": {
+    "message": "Pasta salva ✔"
+  },
+  "settingsReset": {
+    "message": "Configurações redefinidas"
+  },
+  "resetSettings": {
+    "message": "Redefinir configurações"
+  },
+  "afterSetupInstructions": {
+    "message": "Após a configuração: selecione uma palavra em qualquer página → clique com o botão direito → \"Adicionar ao dicionário\", e ela será adicionada à pasta selecionada."
+  },
+  "extensionDescriptionFull": {
+    "message": "A extensão adiciona palavras selecionadas à pasta de cartões selecionada."
+  },
+  "authError": {
+    "message": "Erro de autorização: $STATUS$ $TEXT$",
+    "placeholders": {
+      "STATUS": {
+        "content": "$1"
+      },
+      "TEXT": {
+        "content": "$2"
+      }
+    }
+  },
+  "foldersLoadError": {
+    "message": "Erro ao carregar pastas: $STATUS$ $TEXT$",
+    "placeholders": {
+      "STATUS": {
+        "content": "$1"
+      },
+      "TEXT": {
+        "content": "$2"
+      }
+    }
+  },
+  "failedToLoadFolders": {
+    "message": "Falha ao carregar pastas"
+  }
+}
+
