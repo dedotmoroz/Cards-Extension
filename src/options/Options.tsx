@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-
-// const API_BASE_URL = "http://localhost:3000";
-const API_BASE_URL = "https://kotcat.com";
+import { API_BASE_URL, PROFILE_URL } from "../config";
+import { t } from "../i18n";
 
 type Folder = {
     id: string;
@@ -37,7 +36,7 @@ export const Options: React.FC = () => {
     const handleSaveTokenAndLoadFolders = async () => {
         const trimmed = apiToken.trim();
         if (!trimmed) {
-            setTokenError("Введите токен");
+            setTokenError(t("enterToken"));
             return;
         }
 
@@ -62,12 +61,12 @@ export const Options: React.FC = () => {
             // грузим папки, передавая сохраненный folderId
             await loadFolders(trimmed, savedFolderId);
 
-            setStatus("Токен сохранён, папки загружены ✔");
+            setStatus(t("tokenSavedFoldersLoaded"));
             setTimeout(() => setStatus(""), 2500);
         } catch (err: any) {
             console.error("[CardsExtension] error:", err);
             setTokenError(
-                err instanceof Error ? err.message : "Не удалось загрузить папки"
+                err instanceof Error ? err.message : t("failedToLoadFolders")
             );
         } finally {
             setLoadingFolders(false);
@@ -86,7 +85,7 @@ export const Options: React.FC = () => {
         if (!meRes.ok) {
             const text = await meRes.text().catch(() => "");
             throw new Error(
-                `Ошибка авторизации: ${meRes.status} ${text || meRes.statusText}`
+                t("authError", [String(meRes.status), text || meRes.statusText])
             );
         }
 
@@ -104,9 +103,7 @@ export const Options: React.FC = () => {
         if (!foldersRes.ok) {
             const text = await foldersRes.text().catch(() => "");
             throw new Error(
-                `Ошибка загрузки папок: ${foldersRes.status} ${
-                    text || foldersRes.statusText
-                }`
+                t("foldersLoadError", [String(foldersRes.status), text || foldersRes.statusText])
             );
         }
 
@@ -143,7 +140,7 @@ export const Options: React.FC = () => {
         setFolderId(value);
         setStatus("");
         chrome.storage.sync.set({ folderId: value }, () => {
-            setStatus("Папка сохранена ✔");
+            setStatus(t("folderSaved"));
             setTimeout(() => setStatus(""), 2000);
         });
     };
@@ -155,7 +152,7 @@ export const Options: React.FC = () => {
             setSavedToken("");
             setFolderId("");
             setFolders([]);
-            setStatus("Настройки сброшены");
+            setStatus(t("settingsReset"));
             setTimeout(() => setStatus(""), 2000);
         });
     };
@@ -171,8 +168,8 @@ export const Options: React.FC = () => {
                 maxWidth: 520,
             }}
         >
-            <h1>KotCat Cards Extension</h1>
-            <p style={{ fontSize: 14 }}>Расширение добавляет выделенные слова в выбранную папку карточек.</p>
+            <h1>{t("extensionTitle")}</h1>
+            <p style={{ fontSize: 14 }}>{t("extensionDescriptionFull")}</p>
 
             {/* 1. API Token */}
             <div
@@ -183,12 +180,9 @@ export const Options: React.FC = () => {
                     marginBottom: 16,
                 }}
             >
-                <h2 style={{ fontSize: 16, marginTop: 0 }}>1. API Token</h2>
+                <h2 style={{ fontSize: 16, marginTop: 0 }}>{t("apiTokenSection")}</h2>
                 <p style={{ fontSize: 14, marginTop: 0 }}>
-                    На странице профиль пользователя<br/>
-                    <code>https://kotcat.com/profile</code><br/>
-                    создайте токен, скопируйте его и вставьте в это поле и нажмите{" "}
-                    <strong>OK</strong>, чтобы загрузить список папок.
+                    {t("apiTokenDescription")}
                 </p>
 
                 <div style={{ display: "flex", gap: 8 }}>
@@ -213,7 +207,7 @@ export const Options: React.FC = () => {
                         }}
                         disabled={loadingFolders}
                     >
-                        {loadingFolders ? "Загрузка…" : "OK"}
+                        {loadingFolders ? t("loading") : t("ok")}
                     </button>
                 </div>
 
@@ -231,7 +225,7 @@ export const Options: React.FC = () => {
                             color: "#5cb85c",
                         }}
                     >
-                        Токен сохранён.
+                        {t("tokenSaved")}
                     </div>
                 )}
             </div>
@@ -246,10 +240,9 @@ export const Options: React.FC = () => {
                     opacity: hasToken ? 1 : 0.6,
                 }}
             >
-                <h2 style={{ fontSize: 16, marginTop: 0 }}>2. Доступные папки</h2>
+                <h2 style={{ fontSize: 16, marginTop: 0 }}>{t("availableFolders")}</h2>
                 <p style={{ fontSize: 14, marginTop: 0 }}>
-                    После ввода токена и нажатия здесь появится список
-                    ваших доступных папок.
+                    {t("availableFoldersDescription")}
                 </p>
 
                 <select
@@ -263,19 +256,19 @@ export const Options: React.FC = () => {
                     }}
                 >
                     {!hasToken && (
-                        <option value="">Сначала введите токен и нажмите OK</option>
+                        <option value="">{t("selectFolderFirst")}</option>
                     )}
                     {hasToken && loadingFolders && (
-                        <option value="">Загрузка папок…</option>
+                        <option value="">{t("loadingFolders")}</option>
                     )}
                     {hasToken && !loadingFolders && folders.length === 0 && (
-                        <option value="">Папок не найдено</option>
+                        <option value="">{t("noFoldersFound")}</option>
                     )}
                     {hasToken &&
                         !loadingFolders &&
                         folders.length > 0 && [
                             <option key="_placeholder" value="" disabled={!folderId}>
-                                Выберите папку…
+                                {t("selectFolder")}
                             </option>,
                             ...folders.map((f) => (
                                 <option key={f.id} value={f.id}>
@@ -293,8 +286,7 @@ export const Options: React.FC = () => {
             )}
 
             <p style={{ fontSize: 14, marginTop: 16, opacity: 0.7 }}>
-                После настройки: выделите слово на любой странице → правый клик →
-                «Добавить в словарь», и оно попадёт в выбранную папку.
+                {t("afterSetupInstructions")}
             </p>
 
             {/* Кнопка сброса */}
@@ -311,7 +303,7 @@ export const Options: React.FC = () => {
                     cursor: "pointer",
                 }}
             >
-                Сбросить настройки
+                {t("resetSettings")}
             </button>
         </div>
     );

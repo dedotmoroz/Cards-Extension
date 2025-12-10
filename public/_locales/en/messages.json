@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Cards Dictionary Helper"
+  },
+  "extensionDescription": {
+    "message": "Adds selected words to your cards dictionary."
+  },
+  "addToDictionary": {
+    "message": "Add to dictionary"
+  },
+  "addToDictionaryWithWord": {
+    "message": "\"$WORD$\" - Add to dictionary",
+    "placeholders": {
+      "WORD": {
+        "content": "$1"
+      }
+    }
+  },
+  "notConfigured": {
+    "message": "Not configured"
+  },
+  "enabled": {
+    "message": "Enabled"
+  },
+  "disabled": {
+    "message": "Disabled"
+  },
+  "enable": {
+    "message": "Enable"
+  },
+  "disable": {
+    "message": "Disable"
+  },
+  "settings": {
+    "message": "Settings"
+  },
+  "folderId": {
+    "message": "Folder ID"
+  },
+  "token": {
+    "message": "Token"
+  },
+  "added": {
+    "message": "Added: $WORD$",
+    "placeholders": {
+      "WORD": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorAddingWord": {
+    "message": "Error adding word."
+  },
+  "apiTokenNotConfigured": {
+    "message": "API token or folder not configured. Open extension settings."
+  },
+  "extensionTitle": {
+    "message": "KotCat Cards Extension"
+  },
+  "wordsAddedFromContextMenu": {
+    "message": "Words are added from the context menu when the extension is enabled."
+  },
+  "apiTokenSection": {
+    "message": "1. API Token"
+  },
+  "apiTokenDescription": {
+    "message": "On the user profile page kotcat.com/profile create a token, copy it and paste it into this field and click OK to load the list of folders."
+  },
+  "tokenSaved": {
+    "message": "Token saved."
+  },
+  "enterToken": {
+    "message": "Enter token"
+  },
+  "loading": {
+    "message": "Loading…"
+  },
+  "ok": {
+    "message": "OK"
+  },
+  "availableFolders": {
+    "message": "2. Available folders"
+  },
+  "availableFoldersDescription": {
+    "message": "After entering the token and clicking OK, a list of your available folders will appear here."
+  },
+  "selectFolderFirst": {
+    "message": "First enter the token and click OK"
+  },
+  "loadingFolders": {
+    "message": "Loading folders…"
+  },
+  "noFoldersFound": {
+    "message": "No folders found"
+  },
+  "selectFolder": {
+    "message": "Select folder…"
+  },
+  "tokenSavedFoldersLoaded": {
+    "message": "Token saved, folders loaded ✔"
+  },
+  "folderSaved": {
+    "message": "Folder saved ✔"
+  },
+  "settingsReset": {
+    "message": "Settings reset"
+  },
+  "resetSettings": {
+    "message": "Reset settings"
+  },
+  "afterSetupInstructions": {
+    "message": "After setup: select a word on any page → right click → \"Add to dictionary\", and it will be added to the selected folder."
+  },
+  "extensionDescriptionFull": {
+    "message": "The extension adds selected words to the selected cards folder."
+  },
+  "authError": {
+    "message": "Authorization error: $STATUS$ $TEXT$",
+    "placeholders": {
+      "STATUS": {
+        "content": "$1"
+      },
+      "TEXT": {
+        "content": "$2"
+      }
+    }
+  },
+  "foldersLoadError": {
+    "message": "Error loading folders: $STATUS$ $TEXT$",
+    "placeholders": {
+      "STATUS": {
+        "content": "$1"
+      },
+      "TEXT": {
+        "content": "$2"
+      }
+    }
+  },
+  "failedToLoadFolders": {
+    "message": "Failed to load folders"
+  }
+}
+

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { t } from "../i18n";
 
 type Settings = {
     apiToken: string;
@@ -53,10 +54,10 @@ export const Popup: React.FC = () => {
 
     const statusText =
         !settings.apiToken || !settings.folderId
-            ? "Не настроено"
+            ? t("notConfigured")
             : settings.enabled
-                ? "Включено"
-                : "Выключено";
+                ? t("enabled")
+                : t("disabled");
 
     const [token, setToken] = useState("");
     const [folderId, setFolderId] = useState("");
@@ -81,7 +82,7 @@ export const Popup: React.FC = () => {
             }}
         >
             <h2 style={{ fontSize: 16, margin: 0, marginBottom: 8 }}>
-                KotCat Cards Extension
+                {t("extensionTitle")}
             </h2>
 
             <div
@@ -108,11 +109,11 @@ export const Popup: React.FC = () => {
 
             <div style={{ fontSize: 12, marginBottom: 8 }}>
                 <div>
-                    <strong>Folder ID:</strong>{" "}
+                    <strong>{t("folderId")}:</strong>{" "}
                     {settings.folderId ? short(settings.folderId) : "—"}
                 </div>
                 <div>
-                    <strong>Token:</strong>{" "}
+                    <strong>{t("token")}:</strong>{" "}
                     {settings.apiToken ? short(settings.apiToken) : "—"}
                 </div>
             </div>
@@ -136,7 +137,7 @@ export const Popup: React.FC = () => {
                         cursor: "pointer",
                     }}
                 >
-                    {settings.enabled ? "Выключить" : "Включить"}
+                    {settings.enabled ? t("disable") : t("enable")}
                 </button>
                 <button
                     type="button"
@@ -148,12 +149,12 @@ export const Popup: React.FC = () => {
                         cursor: "pointer",
                     }}
                 >
-                    Настройки
+                    {t("settings")}
                 </button>
             </div>
 
             <p style={{ fontSize: 11, marginTop: 8, opacity: 0.7 }}>
-                Слова добавляются из контекстного меню, когда расширение включено.
+                {t("wordsAddedFromContextMenu")}
             </p>
         </div>
     );

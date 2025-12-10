@@ -1,5 +1,5 @@
-// const API_BASE_URL = "http://localhost:3000";
-const API_BASE_URL = "https://kotcat.com";
+import { API_BASE_URL, MAX_MENU_TEXT_LENGTH, MAX_NOTIFICATION_TEXT_LENGTH } from "./config";
+import { t } from "./i18n";
 
 type Settings = {
     apiToken: string;
@@ -18,16 +18,15 @@ function updateMenuTitle(selectionText: string | undefined) {
     if (selectionText && selectionText.trim()) {
         // Ограничиваем длину текста для удобства отображения
         let displayText = selectionText.trim();
-        const maxLength = 30;
-        if (displayText.length > maxLength) {
-            displayText = displayText.slice(0, maxLength) + "…";
+        if (displayText.length > MAX_MENU_TEXT_LENGTH) {
+            displayText = displayText.slice(0, MAX_MENU_TEXT_LENGTH) + "…";
         }
         chrome.contextMenus.update("add-to-vocab", {
-            title: `«${displayText}» - Добавить в словарь`,
+            title: t("addToDictionaryWithWord", displayText),
         });
     } else {
         chrome.contextMenus.update("add-to-vocab", {
-            title: "Добавить в словарь",
+            title: t("addToDictionary"),
         });
     }
 }
@@ -36,7 +35,7 @@ function updateMenuTitle(selectionText: string | undefined) {
 chrome.runtime.onInstalled.addListener(() => {
     chrome.contextMenus.create({
         id: "add-to-vocab",
-        title: "Добавить в словарь",
+        title: t("addToDictionary"),
         contexts: ["selection"],
     });
     
@@ -129,8 +128,8 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
 
         if (!apiToken || !folderId) {
             await showNotification(
-                "Cards",
-                "Не настроен API-токен или папка. Откройте настройки расширения."
+                t("extensionTitle"),
+                t("apiTokenNotConfigured")
             );
             return;
         }
@@ -148,10 +147,10 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
         // -------------------------------
         // 4) Нормализуем короткую версию для уведомления
         // -------------------------------
-        let short = selectionText.slice(0, 16);
-        if (selectionText.length > 16) short += "…";
+        let short = selectionText.slice(0, MAX_NOTIFICATION_TEXT_LENGTH);
+        if (selectionText.length > MAX_NOTIFICATION_TEXT_LENGTH) short += "…";
 
-        await showNotification("Cards", `Добавлено: «${short}»`);
+        await showNotification(t("extensionTitle"), t("added", short));
         
         // -------------------------------
         // 5) Обновляем меню для следующего использования (fallback для старых версий Chrome)
@@ -164,7 +163,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
         }
     } catch (error) {
         console.error("Ошибка при добавлении слова:", error);
-        await showNotification("Cards", "Ошибка при добавлении слова.");
+        await showNotification(t("extensionTitle"), t("errorAddingWord"));
     }
 });
 

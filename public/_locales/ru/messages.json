@@ -1,0 +1,143 @@
+{
+  "extensionName": {
+    "message": "Помощник словаря карточек"
+  },
+  "extensionDescription": {
+    "message": "Добавляет выделенные слова в словарь карточек."
+  },
+  "addToDictionary": {
+    "message": "Добавить в словарь"
+  },
+  "addToDictionaryWithWord": {
+    "message": "«$WORD$» - Добавить в словарь",
+    "placeholders": {
+      "WORD": {
+        "content": "$1"
+      }
+    }
+  },
+  "notConfigured": {
+    "message": "Не настроено"
+  },
+  "enabled": {
+    "message": "Включено"
+  },
+  "disabled": {
+    "message": "Выключено"
+  },
+  "enable": {
+    "message": "Включить"
+  },
+  "disable": {
+    "message": "Выключить"
+  },
+  "settings": {
+    "message": "Настройки"
+  },
+  "folderId": {
+    "message": "Folder ID"
+  },
+  "token": {
+    "message": "Token"
+  },
+  "added": {
+    "message": "Добавлено: «$WORD$»",
+    "placeholders": {
+      "WORD": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorAddingWord": {
+    "message": "Ошибка при добавлении слова."
+  },
+  "apiTokenNotConfigured": {
+    "message": "Не настроен API-токен или папка. Откройте настройки расширения."
+  },
+  "extensionTitle": {
+    "message": "KotCat Cards Extension"
+  },
+  "wordsAddedFromContextMenu": {
+    "message": "Слова добавляются из контекстного меню, когда расширение включено."
+  },
+  "apiTokenSection": {
+    "message": "1. API Token"
+  },
+  "apiTokenDescription": {
+    "message": "На странице профиль пользователя kotcat.com/profile создайте токен, скопируйте его и вставьте в это поле и нажмите OK, чтобы загрузить список папок."
+  },
+  "tokenSaved": {
+    "message": "Токен сохранён."
+  },
+  "enterToken": {
+    "message": "Введите токен"
+  },
+  "loading": {
+    "message": "Загрузка…"
+  },
+  "ok": {
+    "message": "OK"
+  },
+  "availableFolders": {
+    "message": "2. Доступные папки"
+  },
+  "availableFoldersDescription": {
+    "message": "После ввода токена и нажатия OK здесь появится список ваших доступных папок."
+  },
+  "selectFolderFirst": {
+    "message": "Сначала введите токен и нажмите OK"
+  },
+  "loadingFolders": {
+    "message": "Загрузка папок…"
+  },
+  "noFoldersFound": {
+    "message": "Папок не найдено"
+  },
+  "selectFolder": {
+    "message": "Выберите папку…"
+  },
+  "tokenSavedFoldersLoaded": {
+    "message": "Токен сохранён, папки загружены ✔"
+  },
+  "folderSaved": {
+    "message": "Папка сохранена ✔"
+  },
+  "settingsReset": {
+    "message": "Настройки сброшены"
+  },
+  "resetSettings": {
+    "message": "Сбросить настройки"
+  },
+  "afterSetupInstructions": {
+    "message": "После настройки: выделите слово на любой странице → правый клик → «Добавить в словарь», и оно попадёт в выбранную папку."
+  },
+  "extensionDescriptionFull": {
+    "message": "Расширение добавляет выделенные слова в выбранную папку карточек."
+  },
+  "authError": {
+    "message": "Ошибка авторизации: $STATUS$ $TEXT$",
+    "placeholders": {
+      "STATUS": {
+        "content": "$1"
+      },
+      "TEXT": {
+        "content": "$2"
+      }
+    }
+  },
+  "foldersLoadError": {
+    "message": "Ошибка загрузки папок: $STATUS$ $TEXT$",
+    "placeholders": {
+      "STATUS": {
+        "content": "$1"
+      },
+      "TEXT": {
+        "content": "$2"
+      }
+    }
+  },
+  "failedToLoadFolders": {
+    "message": "Не удалось загрузить папки"
+  }
+}
+
