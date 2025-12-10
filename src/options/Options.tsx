@@ -28,7 +28,8 @@ export const Options: React.FC = () => {
             setFolderId(folder);
 
             if (token) {
-                loadFolders(token).catch(console.error);
+                // Передаем сохраненный folderId, чтобы не перезаписывать выбор пользователя
+                loadFolders(token, folder).catch(console.error);
             }
         });
     }, []);
@@ -51,8 +52,15 @@ export const Options: React.FC = () => {
             });
             setSavedToken(trimmed);
 
-            // грузим папки
-            await loadFolders(trimmed);
+            // Читаем сохраненный folderId перед загрузкой папок
+            const savedFolderId = await new Promise<string>((resolve) => {
+                chrome.storage.sync.get(["folderId"], (result) => {
+                    resolve((result.folderId as string) || "");
+                });
+            });
+            
+            // грузим папки, передавая сохраненный folderId
+            await loadFolders(trimmed, savedFolderId);
 
             setStatus("Токен сохранён, папки загружены ✔");
             setTimeout(() => setStatus(""), 2500);
@@ -66,7 +74,7 @@ export const Options: React.FC = () => {
         }
     };
 
-    async function loadFolders(token: string) {
+    async function loadFolders(token: string, savedFolderId?: string) {
         // 1. узнаём userId через /auth/me
         const meRes = await fetch(`${API_BASE_URL}/api/auth/me`, {
             method: "GET",
@@ -105,12 +113,27 @@ export const Options: React.FC = () => {
         const data = (await foldersRes.json()) as Folder[];
         setFolders(data);
 
-        // если папка ещё не выбрана – выбираем первую
-        if (!folderId && data.length > 0) {
+        // Используем переданный savedFolderId или читаем из состояния
+        const currentFolderId = savedFolderId !== undefined ? savedFolderId : folderId;
+        
+        // Проверяем, что выбранная папка все еще существует в списке
+        const folderExists = currentFolderId && data.some(f => f.id === currentFolderId);
+        
+        if (folderExists) {
+            // Если сохраненная папка существует, используем её
+            setFolderId(currentFolderId);
+        } else if (!currentFolderId && data.length > 0) {
+            // Если папка ещё не выбрана – выбираем первую
             const firstId = data[0].id;
             setFolderId(firstId);
             await new Promise<void>((resolve) => {
                 chrome.storage.sync.set({ folderId: firstId }, () => resolve());
+            });
+        } else if (currentFolderId && !folderExists) {
+            // Если сохраненная папка больше не существует, сбрасываем выбор
+            setFolderId("");
+            await new Promise<void>((resolve) => {
+                chrome.storage.sync.remove(["folderId"], () => resolve());
             });
         }
     }
