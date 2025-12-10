@@ -149,7 +149,7 @@ export const Options: React.FC = () => {
             }}
         >
             <h1>KotCat Cards Extension</h1>
-            <p>Расширение добавляет выделенные слова в выбранную папку карточек.</p>
+            <p style={{ fontSize: 14 }}>Расширение добавляет выделенные слова в выбранную папку карточек.</p>
 
             {/* 1. API Token */}
             <div
@@ -161,8 +161,10 @@ export const Options: React.FC = () => {
                 }}
             >
                 <h2 style={{ fontSize: 16, marginTop: 0 }}>1. API Token</h2>
-                <p style={{ fontSize: 13, marginTop: 0 }}>
-                    Вставьте токен (из <code>/auth/token</code>) и нажмите{" "}
+                <p style={{ fontSize: 14, marginTop: 0 }}>
+                    На странице профиль пользователя<br/>
+                    <code>https://kotcat.com/profile</code><br/>
+                    создайте токен, скопируйте его и вставьте в это поле и нажмите{" "}
                     <strong>OK</strong>, чтобы загрузить список папок.
                 </p>
 
@@ -222,9 +224,9 @@ export const Options: React.FC = () => {
                 }}
             >
                 <h2 style={{ fontSize: 16, marginTop: 0 }}>2. Доступные папки</h2>
-                <p style={{ fontSize: 13, marginTop: 0 }}>
-                    После ввода токена и нажатия <strong>OK</strong> здесь появится список
-                    ваших папок.
+                <p style={{ fontSize: 14, marginTop: 0 }}>
+                    После ввода токена и нажатия здесь появится список
+                    ваших доступных папок.
                 </p>
 
                 <select
@@ -267,7 +269,7 @@ export const Options: React.FC = () => {
                 </div>
             )}
 
-            <p style={{ fontSize: 11, marginTop: 16, opacity: 0.7 }}>
+            <p style={{ fontSize: 14, marginTop: 16, opacity: 0.7 }}>
                 После настройки: выделите слово на любой странице → правый клик →
                 «Добавить в словарь», и оно попадёт в выбранную папку.
             </p>
