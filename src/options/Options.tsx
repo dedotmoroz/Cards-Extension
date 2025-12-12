@@ -17,7 +17,7 @@ export const Options: React.FC = () => {
     const [tokenError, setTokenError] = useState<string | null>(null);
     const [status, setStatus] = useState("");
 
-    // При загрузке — читаем сохранённые значения
+    // On load — read saved values
     useEffect(() => {
         chrome.storage.sync.get(["apiToken", "folderId"], (result) => {
             const token = (result.apiToken as string) || "";
@@ -27,7 +27,7 @@ export const Options: React.FC = () => {
             setFolderId(folder);
 
             if (token) {
-                // Передаем сохраненный folderId, чтобы не перезаписывать выбор пользователя
+                // Pass saved folderId to avoid overwriting user selection
                 loadFolders(token, folder).catch(console.error);
             }
         });
@@ -45,20 +45,20 @@ export const Options: React.FC = () => {
         setLoadingFolders(true);
 
         try {
-            // сохраняем токен в storage
+            // save token to storage
             await new Promise<void>((resolve) => {
                 chrome.storage.sync.set({ apiToken: trimmed }, () => resolve());
             });
             setSavedToken(trimmed);
 
-            // Читаем сохраненный folderId перед загрузкой папок
+            // Read saved folderId before loading folders
             const savedFolderId = await new Promise<string>((resolve) => {
                 chrome.storage.sync.get(["folderId"], (result) => {
                     resolve((result.folderId as string) || "");
                 });
             });
             
-            // грузим папки, передавая сохраненный folderId
+            // load folders, passing saved folderId
             await loadFolders(trimmed, savedFolderId);
 
             setStatus(t("tokenSavedFoldersLoaded"));
@@ -74,7 +74,7 @@ export const Options: React.FC = () => {
     };
 
     async function loadFolders(token: string, savedFolderId?: string) {
-        // 1. узнаём userId через /auth/me
+        // 1. get userId via /auth/me
         const meRes = await fetch(`${API_BASE_URL}/api/auth/me`, {
             method: "GET",
             headers: {
@@ -92,7 +92,7 @@ export const Options: React.FC = () => {
         const me = (await meRes.json()) as { id: string };
         const userId = me.id;
 
-        // 2. получаем список папок
+        // 2. get list of folders
         const foldersRes = await fetch(`${API_BASE_URL}/api/folders/${userId}`, {
             method: "GET",
             headers: {
@@ -110,24 +110,24 @@ export const Options: React.FC = () => {
         const data = (await foldersRes.json()) as Folder[];
         setFolders(data);
 
-        // Используем переданный savedFolderId или читаем из состояния
+        // Use passed savedFolderId or read from state
         const currentFolderId = savedFolderId !== undefined ? savedFolderId : folderId;
         
-        // Проверяем, что выбранная папка все еще существует в списке
+        // Check that selected folder still exists in the list
         const folderExists = currentFolderId && data.some(f => f.id === currentFolderId);
         
         if (folderExists) {
-            // Если сохраненная папка существует, используем её
+            // If saved folder exists, use it
             setFolderId(currentFolderId);
         } else if (!currentFolderId && data.length > 0) {
-            // Если папка ещё не выбрана – выбираем первую
+            // If folder is not yet selected – select the first one
             const firstId = data[0].id;
             setFolderId(firstId);
             await new Promise<void>((resolve) => {
                 chrome.storage.sync.set({ folderId: firstId }, () => resolve());
             });
         } else if (currentFolderId && !folderExists) {
-            // Если сохраненная папка больше не существует, сбрасываем выбор
+            // If saved folder no longer exists, reset selection
             setFolderId("");
             await new Promise<void>((resolve) => {
                 chrome.storage.sync.remove(["folderId"], () => resolve());
@@ -145,7 +145,7 @@ export const Options: React.FC = () => {
         });
     };
 
-    // Добавь функцию сброса выше, внутри компонента:
+    // Add reset function above, inside component:
     const handleReset = () => {
         chrome.storage.sync.remove(["apiToken", "folderId"], () => {
             setApiToken("");
@@ -230,7 +230,7 @@ export const Options: React.FC = () => {
                 )}
             </div>
 
-            {/* 2. Доступные папки */}
+            {/* 2. Available folders */}
             <div
                 style={{
                     border: "1px solid #ddd",
@@ -289,7 +289,7 @@ export const Options: React.FC = () => {
                 {t("afterSetupInstructions")}
             </p>
 
-            {/* Кнопка сброса */}
+            {/* Reset button */}
             <button
                 type="button"
                 onClick={handleReset}

@@ -1,28 +1,28 @@
 /**
- * Утилиты для работы с локализацией
+ * Utilities for localization
  */
 
 /**
- * Получить локализованную строку
- * @param key - Ключ сообщения из messages.json
- * @param substitutions - Замены для плейсхолдеров (строка или массив строк)
- * @returns Локализованная строка
+ * Get localized string
+ * @param key - Message key from messages.json
+ * @param substitutions - Substitutions for placeholders (string or array of strings)
+ * @returns Localized string
  */
 export function t(key: string, substitutions?: string | string[]): string {
     return chrome.i18n.getMessage(key, substitutions);
 }
 
 /**
- * Получить текущий язык интерфейса браузера
- * @returns Код языка (например, "ru", "en")
+ * Get current browser interface language
+ * @returns Language code (e.g., "ru", "en")
  */
 export function getUILanguage(): string {
     return chrome.i18n.getUILanguage();
 }
 
 /**
- * Получить список предпочитаемых языков браузера
- * @returns Promise с массивом кодов языков
+ * Get list of browser preferred languages
+ * @returns Promise with array of language codes
  */
 export function getAcceptLanguages(): Promise<string[]> {
     return new Promise((resolve) => {

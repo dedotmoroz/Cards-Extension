@@ -6,7 +6,7 @@ type Settings = {
     folderId: string;
 };
 
-// Обновляем текст меню с выделенным словом перед показом
+// Update menu text with selected word before showing
 interface OnShownInfo {
     menuIds: number | string | Array<number | string>;
     selectionText?: string;
@@ -16,7 +16,7 @@ interface OnShownInfo {
 
 function updateMenuTitle(selectionText: string | undefined) {
     if (selectionText && selectionText.trim()) {
-        // Ограничиваем длину текста для удобства отображения
+        // Limit text length for better display
         let displayText = selectionText.trim();
         if (displayText.length > MAX_MENU_TEXT_LENGTH) {
             displayText = displayText.slice(0, MAX_MENU_TEXT_LENGTH) + "…";
@@ -31,7 +31,7 @@ function updateMenuTitle(selectionText: string | undefined) {
     }
 }
 
-// Создаем меню при установке
+// Create menu on installation
 chrome.runtime.onInstalled.addListener(() => {
     chrome.contextMenus.create({
         id: "add-to-vocab",
@@ -39,29 +39,29 @@ chrome.runtime.onInstalled.addListener(() => {
         contexts: ["selection"],
     });
     
-    // Пытаемся зарегистрировать onShown сразу после создания меню
+    // Try to register onShown immediately after creating menu
     setupOnShownListener();
 });
 
-// Также пытаемся зарегистрировать при старте service worker
+// Also try to register on service worker startup
 setupOnShownListener();
 
-// Обрабатываем сообщения от content script для обновления меню
+// Handle messages from content script to update menu
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.type === "SELECTION_CHANGED" && message.text) {
         console.log("[CardsExtension] Selection changed from content script:", message.text);
         updateMenuTitle(message.text);
         sendResponse({ success: true });
     }
-    return true; // Позволяем асинхронную отправку ответа
+    return true; // Allow asynchronous response sending
 });
 
 function setupOnShownListener() {
-    // Пытаемся использовать onShown (доступен в Chrome 88+)
-    // Используем прямой доступ через any, так как типы могут быть неполными
+    // Try to use onShown (available in Chrome 88+)
+    // Use direct access through any, as types may be incomplete
     const contextMenusAny = chrome.contextMenus as any;
     
-    // Проверяем наличие onShown разными способами
+    // Check for onShown presence in different ways
     const hasOnShown = 
         contextMenusAny.onShown !== undefined && 
         contextMenusAny.onShown !== null &&
@@ -88,8 +88,8 @@ function setupOnShownListener() {
             "Dynamic menu titles require Chrome 88 or later. " +
             "Using fallback: menu will update after each use."
         );
-        // Для старых версий Chrome: обновляем меню после каждого использования
-        // Это означает, что при следующем открытии меню будет показано последнее выделенное слово
+        // For older Chrome versions: update menu after each use
+        // This means that on the next menu open, the last selected word will be shown
     }
 }
 
@@ -104,7 +104,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
     const pageUrl = info.pageUrl ?? tab?.url ?? "";
 
     // -------------------------------
-    // 1) Читаем флаг enabled из настроек
+    // 1) Read enabled flag from settings
     // -------------------------------
     const { enabled } = await new Promise<{ enabled: boolean }>((resolve) => {
         chrome.storage.sync.get(["enabled"], (result) => {
@@ -121,7 +121,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
     }
 
     // -------------------------------
-    // 2) Грузим токен и папку
+    // 2) Load token and folder
     // -------------------------------
     try {
         const { apiToken, folderId } = await loadSettings();
@@ -135,7 +135,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
         }
 
         // -------------------------------
-        // 3) Отправляем слово на сервер
+        // 3) Send word to server
         // -------------------------------
         await addWordToFolder({
             apiToken,
@@ -145,7 +145,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
         });
 
         // -------------------------------
-        // 4) Нормализуем короткую версию для уведомления
+        // 4) Normalize short version for notification
         // -------------------------------
         let short = selectionText.slice(0, MAX_NOTIFICATION_TEXT_LENGTH);
         if (selectionText.length > MAX_NOTIFICATION_TEXT_LENGTH) short += "…";
@@ -153,16 +153,16 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
         await showNotification(t("extensionTitle"), t("added", short));
         
         // -------------------------------
-        // 5) Обновляем меню для следующего использования (fallback для старых версий Chrome)
+        // 5) Update menu for next use (fallback for older Chrome versions)
         // -------------------------------
-        // Если onShown недоступен, обновляем меню после использования,
-        // чтобы при следующем открытии контекстного меню было показано последнее слово
+        // If onShown is unavailable, update menu after use,
+        // so that on the next context menu open, the last word will be shown
         const contextMenusAny = chrome.contextMenus as any;
         if (!contextMenusAny.onShown) {
             updateMenuTitle(selectionText);
         }
     } catch (error) {
-        console.error("Ошибка при добавлении слова:", error);
+        console.error("Error adding word:", error);
         await showNotification(t("extensionTitle"), t("errorAddingWord"));
     }
 });

@@ -1,21 +1,21 @@
-// Content script для отслеживания выделения текста
-// Отправляет выделенный текст в background script для обновления контекстного меню
+// Content script for tracking text selection
+// Sends selected text to background script for context menu update
 
 let lastSelection = "";
 
-// Отслеживаем выделение текста при отпускании кнопки мыши
+// Track text selection on mouse button release
 document.addEventListener("mouseup", () => {
     const selection = window.getSelection()?.toString().trim();
     
     if (selection && selection.length > 0 && selection !== lastSelection) {
         lastSelection = selection;
         
-        // Отправляем выделенный текст в background script
+        // Send selected text to background script
         chrome.runtime.sendMessage(
             { type: "SELECTION_CHANGED", text: selection },
             (response) => {
                 if (chrome.runtime.lastError) {
-                    // Игнорируем ошибки, если background script не готов
+                    // Ignore errors if background script is not ready
                     console.debug("[CardsExtension] Content script:", chrome.runtime.lastError.message);
                 }
             }
@@ -23,7 +23,7 @@ document.addEventListener("mouseup", () => {
     }
 });
 
-// Также отслеживаем выделение через клавиатуру
+// Also track selection via keyboard
 document.addEventListener("keyup", () => {
     const selection = window.getSelection()?.toString().trim();
     
