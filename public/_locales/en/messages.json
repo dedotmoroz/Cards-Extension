@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "Cards Dictionary Helper"
+    "message": "KotCat – Save Words While Browsing"
   },
   "extensionDescription": {
-    "message": "Adds selected words to your cards dictionary."
+    "message": "Save words from any website while reading. Instantly create vocabulary cards with context using KotCat."
   },
   "addToDictionary": {
     "message": "Add to dictionary"
@@ -36,6 +36,9 @@
   },
   "folderId": {
     "message": "Folder ID"
+  },
+  "folder": {
+    "message": "Folder"
   },
   "token": {
     "message": "Token"
@@ -72,6 +75,9 @@
   "enterToken": {
     "message": "Enter token"
   },
+  "clear": {
+    "message": "Clear"
+  },
   "loading": {
     "message": "Loading…"
   },
@@ -104,6 +110,9 @@
   },
   "settingsReset": {
     "message": "Settings reset"
+  },
+  "saveSettings": {
+    "message": "Save settings"
   },
   "resetSettings": {
     "message": "Reset settings"

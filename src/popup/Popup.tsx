@@ -4,6 +4,7 @@ import { t } from "../i18n";
 type Settings = {
     apiToken: string;
     folderId: string;
+    folderName: string;
     enabled: boolean;
 };
 
@@ -11,17 +12,19 @@ export const Popup: React.FC = () => {
     const [settings, setSettings] = useState<Settings>({
         apiToken: "",
         folderId: "",
+        folderName: "",
         enabled: true,
     });
     const [saving, setSaving] = useState(false);
 
     useEffect(() => {
         chrome.storage.sync.get(
-            ["apiToken", "folderId", "enabled"],
+            ["apiToken", "folderId", "folderName", "enabled"],
             (result) => {
                 setSettings({
                     apiToken: (result.apiToken as string) || "",
                     folderId: (result.folderId as string) || "",
+                    folderName: (result.folderName as string) || "",
                     enabled:
                         typeof result.enabled === "boolean" ? result.enabled : true,
                 });
@@ -59,18 +62,7 @@ export const Popup: React.FC = () => {
                 ? t("enabled")
                 : t("disabled");
 
-    const [token, setToken] = useState("");
-    const [folderId, setFolderId] = useState("");
-
-    useEffect(() => {
-        chrome.storage.sync.get(["apiToken", "folderId"], (result) => {
-            setToken(result.apiToken || "");
-            setFolderId(result.folderId || "");
-        });
-    }, []);
-
-
-    const isReady = token && folderId;
+    const isReady = settings.apiToken && settings.folderId;
 
     return (
         <div
@@ -109,8 +101,10 @@ export const Popup: React.FC = () => {
 
             <div style={{ fontSize: 12, marginBottom: 8 }}>
                 <div>
-                    <strong>{t("folderId")}:</strong>{" "}
-                    {settings.folderId ? short(settings.folderId) : "—"}
+                    <strong>{t("folder")}:</strong>{" "}
+                    {settings.folderName || settings.folderId
+                        ? settings.folderName || short(settings.folderId)
+                        : "—"}
                 </div>
                 <div>
                     <strong>{t("token")}:</strong>{" "}

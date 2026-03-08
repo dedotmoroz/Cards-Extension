@@ -1,6 +1,6 @@
 # Privacy Policy for Cards Dictionary Helper
 
-**Last Updated:** December 11, 2024
+**Last Updated:** December 11, 2025
 
 ## Introduction
 
@@ -80,7 +80,7 @@ The extension requires the following permissions:
 - **contextMenus**: To add "Add to dictionary" option to the right-click menu
 - **storage**: To save your API token, folder ID, and preferences locally
 - **notifications**: To show confirmation messages when words are added
-- **host_permissions** (localhost): For development purposes only
+- **host_permissions** (kotcat.com): To send selected words and authentication to the kotcat.com API
 
 ## Your Rights
 

@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "Помощник словаря карточек"
+    "message": "KotCat – Сохраняй слова во время чтения"
   },
   "extensionDescription": {
-    "message": "Добавляет выделенные слова в словарь карточек."
+    "message": "Сохраняйте новые слова с сайтов и создавайте карточки со контекстом прямо во время чтения."
   },
   "addToDictionary": {
     "message": "Добавить в словарь"
@@ -36,6 +36,9 @@
   },
   "folderId": {
     "message": "Folder ID"
+  },
+  "folder": {
+    "message": "Папка"
   },
   "token": {
     "message": "Token"
@@ -72,6 +75,9 @@
   "enterToken": {
     "message": "Введите токен"
   },
+  "clear": {
+    "message": "Очистить"
+  },
   "loading": {
     "message": "Загрузка…"
   },
@@ -104,6 +110,9 @@
   },
   "settingsReset": {
     "message": "Настройки сброшены"
+  },
+  "saveSettings": {
+    "message": "Сохранить настройки"
   },
   "resetSettings": {
     "message": "Сбросить настройки"

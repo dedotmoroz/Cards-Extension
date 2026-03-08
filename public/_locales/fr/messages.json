@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "Assistant de dictionnaire de cartes"
+    "message": "KotCat – Enregistrez les mots en naviguant"
   },
   "extensionDescription": {
-    "message": "Ajoute les mots sélectionnés à votre dictionnaire de cartes."
+    "message": "Enregistrez les mots de n'importe quel site en lisant. Créez instantanément des cartes de vocabulaire avec contexte dans KotCat."
   },
   "addToDictionary": {
     "message": "Ajouter au dictionnaire"
@@ -36,6 +36,9 @@
   },
   "folderId": {
     "message": "ID du dossier"
+  },
+  "folder": {
+    "message": "Dossier"
   },
   "token": {
     "message": "Jeton"
@@ -72,6 +75,9 @@
   "enterToken": {
     "message": "Entrez le jeton"
   },
+  "clear": {
+    "message": "Effacer"
+  },
   "loading": {
     "message": "Chargement…"
   },
@@ -104,6 +110,9 @@
   },
   "settingsReset": {
     "message": "Paramètres réinitialisés"
+  },
+  "saveSettings": {
+    "message": "Enregistrer les paramètres"
   },
   "resetSettings": {
     "message": "Réinitialiser les paramètres"

@@ -10,7 +10,7 @@
     "notifications"
   ],
   "host_permissions": [
-    "http://localhost:4000/*"
+    "https://kotcat.com/*"
   ],
   "content_scripts": [
     {

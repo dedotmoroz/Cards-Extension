@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "卡片词典助手"
+    "message": "KotCat – 浏览时保存单词"
   },
   "extensionDescription": {
-    "message": "将选定的单词添加到您的卡片词典中。"
+    "message": "阅读时从任何网站保存单词。使用 KotCat 即时创建带上下文的词汇卡。"
   },
   "addToDictionary": {
     "message": "添加到词典"
@@ -33,6 +33,9 @@
   },
   "settings": {
     "message": "设置"
+  },
+  "folder": {
+    "message": "文件夹"
   },
   "folderId": {
     "message": "文件夹ID"
@@ -72,6 +75,9 @@
   "enterToken": {
     "message": "输入令牌"
   },
+  "clear": {
+    "message": "清除"
+  },
   "loading": {
     "message": "加载中…"
   },
@@ -104,6 +110,9 @@
   },
   "settingsReset": {
     "message": "设置已重置"
+  },
+  "saveSettings": {
+    "message": "保存设置"
   },
   "resetSettings": {
     "message": "重置设置"

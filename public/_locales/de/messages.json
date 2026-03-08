@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "Karten-Wörterbuch-Helfer"
+    "message": "KotCat – Wörter beim Surfen speichern"
   },
   "extensionDescription": {
-    "message": "Fügt ausgewählte Wörter zu Ihrem Karten-Wörterbuch hinzu."
+    "message": "Speichere Wörter von jeder Website beim Lesen. Erstelle sofort Vokabelkarten mit Kontext in KotCat."
   },
   "addToDictionary": {
     "message": "Zum Wörterbuch hinzufügen"
@@ -36,6 +36,9 @@
   },
   "folderId": {
     "message": "Ordner-ID"
+  },
+  "folder": {
+    "message": "Ordner"
   },
   "token": {
     "message": "Token"
@@ -72,6 +75,9 @@
   "enterToken": {
     "message": "Token eingeben"
   },
+  "clear": {
+    "message": "Löschen"
+  },
   "loading": {
     "message": "Laden…"
   },
@@ -104,6 +110,9 @@
   },
   "settingsReset": {
     "message": "Einstellungen zurückgesetzt"
+  },
+  "saveSettings": {
+    "message": "Einstellungen speichern"
   },
   "resetSettings": {
     "message": "Einstellungen zurücksetzen"

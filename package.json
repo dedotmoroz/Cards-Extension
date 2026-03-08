@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "pack": "npm run build && cd dist && zip -r ../cards-extension.zip . -x '*.DS_Store' && cd .."
   },
   "dependencies": {
     "react": "^18.3.0",

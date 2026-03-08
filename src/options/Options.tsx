@@ -19,7 +19,7 @@ export const Options: React.FC = () => {
 
     // On load — read saved values
     useEffect(() => {
-        chrome.storage.sync.get(["apiToken", "folderId"], (result) => {
+        chrome.storage.sync.get(["apiToken", "folderId", "folderName"], (result) => {
             const token = (result.apiToken as string) || "";
             const folder = (result.folderId as string) || "";
             setApiToken(token);
@@ -62,7 +62,6 @@ export const Options: React.FC = () => {
             await loadFolders(trimmed, savedFolderId);
 
             setStatus(t("tokenSavedFoldersLoaded"));
-            setTimeout(() => setStatus(""), 2500);
         } catch (err: any) {
             console.error("[CardsExtension] error:", err);
             setTokenError(
@@ -117,37 +116,49 @@ export const Options: React.FC = () => {
         const folderExists = currentFolderId && data.some(f => f.id === currentFolderId);
         
         if (folderExists) {
-            // If saved folder exists, use it
+            // If saved folder exists, use it and update folderName
+            const folder = data.find((f) => f.id === currentFolderId);
             setFolderId(currentFolderId);
+            if (folder?.name) {
+                await new Promise<void>((resolve) => {
+                    chrome.storage.sync.set({ folderName: folder.name }, () => resolve());
+                });
+            }
         } else if (!currentFolderId && data.length > 0) {
             // If folder is not yet selected – select the first one
-            const firstId = data[0].id;
-            setFolderId(firstId);
+            const first = data[0];
+            setFolderId(first.id);
             await new Promise<void>((resolve) => {
-                chrome.storage.sync.set({ folderId: firstId }, () => resolve());
+                chrome.storage.sync.set(
+                    { folderId: first.id, folderName: first.name },
+                    () => resolve()
+                );
             });
         } else if (currentFolderId && !folderExists) {
             // If saved folder no longer exists, reset selection
             setFolderId("");
             await new Promise<void>((resolve) => {
-                chrome.storage.sync.remove(["folderId"], () => resolve());
+                chrome.storage.sync.remove(["folderId", "folderName"], () => resolve());
             });
         }
     }
 
     const handleFolderChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const value = e.target.value;
+        const folder = folders.find((f) => f.id === value);
         setFolderId(value);
         setStatus("");
-        chrome.storage.sync.set({ folderId: value }, () => {
-            setStatus(t("folderSaved"));
-            setTimeout(() => setStatus(""), 2000);
-        });
+        chrome.storage.sync.set(
+            { folderId: value, folderName: folder?.name ?? "" },
+            () => {
+                setStatus(t("folderSaved"));
+            }
+        );
     };
 
     // Add reset function above, inside component:
     const handleReset = () => {
-        chrome.storage.sync.remove(["apiToken", "folderId"], () => {
+        chrome.storage.sync.remove(["apiToken", "folderId", "folderName"], () => {
             setApiToken("");
             setSavedToken("");
             setFolderId("");
@@ -185,7 +196,7 @@ export const Options: React.FC = () => {
                     {t("apiTokenDescription")}
                 </p>
 
-                <div style={{ display: "flex", gap: 8 }}>
+                <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
                     <input
                         type="text"
                         value={apiToken}
@@ -195,8 +206,27 @@ export const Options: React.FC = () => {
                             padding: "6px 8px",
                             boxSizing: "border-box",
                         }}
-                        placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                        placeholder={t("enterToken")}
                     />
+                    {apiToken && (
+                        <button
+                            type="button"
+                            onClick={() => setApiToken("")}
+                            title={t("clear")}
+                            style={{
+                                padding: "4px 8px",
+                                cursor: "pointer",
+                                fontSize: 16,
+                                lineHeight: 1,
+                                border: "1px solid #ccc",
+                                borderRadius: 4,
+                                backgroundColor: "#f5f5f5",
+                            }}
+                            aria-label={t("clear")}
+                        >
+                            ×
+                        </button>
+                    )}
                     <button
                         type="button"
                         onClick={handleSaveTokenAndLoadFolders}
@@ -289,13 +319,26 @@ export const Options: React.FC = () => {
                 {t("afterSetupInstructions")}
             </p>
 
-            {/* Reset button */}
-            <button
-                type="button"
-                onClick={handleReset}
-                style={{
-                    marginTop: 20,
-                    padding: "6px 12px",
+            <div style={{ display: "flex", gap: 8, marginTop: 20 }}>
+                <button
+                    type="button"
+                    onClick={() => window.close()}
+                    style={{
+                        padding: "6px 12px",
+                        backgroundColor: "#5cb85c",
+                        color: "white",
+                        border: "none",
+                        borderRadius: 4,
+                        cursor: "pointer",
+                    }}
+                >
+                    {t("saveSettings")}
+                </button>
+                <button
+                    type="button"
+                    onClick={handleReset}
+                    style={{
+                        padding: "6px 12px",
                     backgroundColor: "#d9534f",
                     color: "white",
                     border: "none",
@@ -305,6 +348,7 @@ export const Options: React.FC = () => {
             >
                 {t("resetSettings")}
             </button>
+            </div>
         </div>
     );
 };

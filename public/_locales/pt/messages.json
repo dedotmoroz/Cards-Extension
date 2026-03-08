@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "Assistente de dicionário de cartões"
+    "message": "KotCat – Salve palavras enquanto navega"
   },
   "extensionDescription": {
-    "message": "Adiciona palavras selecionadas ao seu dicionário de cartões."
+    "message": "Salve palavras de qualquer site enquanto lê. Crie cartões de vocabulário com contexto instantaneamente no KotCat."
   },
   "addToDictionary": {
     "message": "Adicionar ao dicionário"
@@ -36,6 +36,9 @@
   },
   "folderId": {
     "message": "ID da pasta"
+  },
+  "folder": {
+    "message": "Pasta"
   },
   "token": {
     "message": "Token"
@@ -72,6 +75,9 @@
   "enterToken": {
     "message": "Digite o token"
   },
+  "clear": {
+    "message": "Limpar"
+  },
   "loading": {
     "message": "Carregando…"
   },
@@ -104,6 +110,9 @@
   },
   "settingsReset": {
     "message": "Configurações redefinidas"
+  },
+  "saveSettings": {
+    "message": "Salvar configurações"
   },
   "resetSettings": {
     "message": "Redefinir configurações"
