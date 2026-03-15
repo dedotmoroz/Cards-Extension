@@ -1,6 +1,20 @@
-# Cards Dictionary Helper - Chrome Extension
+<p align="center">
+  <img src="screens/kotcat_extension_icon_128.png" alt="KotCat Extension" width="128" height="128">
+</p>
 
-A Chrome browser extension that helps you easily add selected words to your cards dictionary on kotcat.com.
+# KotCat – Save Words While Browsing
+
+A Chrome browser extension that helps you save words from any website while reading and create vocabulary cards with context using KotCat.
+
+## Installation
+
+### From Chrome Web Store
+
+**[Install KotCat extension →](https://chromewebstore.google.com/detail/kotcat-%E2%80%93-save-words-while/hbjmiobfalkndjepaclgglgfjkfnegim)**
+
+1. Click the link above or visit the [Chrome Web Store](https://chromewebstore.google.com/detail/kotcat-%E2%80%93-save-words-while/hbjmiobfalkndjepaclgglgfjkfnegim)
+2. Click "Add to Chrome"
+3. Confirm the installation
 
 ## Features
 
@@ -9,13 +23,6 @@ A Chrome browser extension that helps you easily add selected words to your card
 - 🔒 Privacy-focused (local storage, secure communication)
 - ⚙️ Easy configuration
 - 📱 Smart context menu with word preview
-
-## Installation
-
-### From Chrome Web Store
-1. Visit the Chrome Web Store
-2. Search for "Cards Dictionary Helper"
-3. Click "Add to Chrome"
 
 ### Manual Installation (Development)
 1. Clone this repository
@@ -40,6 +47,12 @@ A Chrome browser extension that helps you easily add selected words to your card
 2. Right-click
 3. Choose "Add to dictionary" (or "[word] - Add to dictionary")
 4. The word is saved to your selected folder on kotcat.com
+
+## Screenshots
+
+| Context menu | Popup | Settings |
+|:---:|:---:|:---:|
+| ![Context menu](screens/1s.png) | ![Popup](screens/2s.png) | ![Settings](screens/3s.png) |
 
 ## Supported Languages
 
